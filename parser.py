@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 import sys
 import gdown
@@ -114,16 +115,17 @@ class CSVParser:
 
     def load_fields_data(self, fields: list, data: dict):
         """Return the list of data for a specified fields"""
-        requested_data = None
+        json_serialization = None
         try:
             print(f"Print the requested fields: {fields}")
             requested_data = {
-                "data": data[fields]
+                "data": data[fields].to_dict()
             }
+            json_serialization = json.dumps(requested_data)
         except KeyError as e:
-            print(f"Something is not ok with data for fields: {fields}")
+            print(f"Something is not ok with data for fields: {fields}: {e}")
 
-        return requested_data
+        return json_serialization
 
 
 if __name__ == "__main__":
@@ -146,4 +148,5 @@ if __name__ == "__main__":
     if args.csv_fields:
         print_fields = parser.parse_fields_params(args.csv_fields)
         if print_fields:
-            print(parser.load_fields_data(print_fields, csv_data))
+            requested_data = parser.load_fields_data(print_fields, csv_data)
+            print(requested_data)
