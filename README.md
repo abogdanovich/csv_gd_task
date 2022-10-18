@@ -1,7 +1,7 @@
 # CSV loader - practical tasks
 `Helps to load CSV file from some URL and provide ability to parse data in some format`
 
-###Original task description:
+##Original task description:
 
 Create a program that fetches data from a csv file hosted on google drive and returns it to the user.
 The URL for the file is: test_task_data.csv
@@ -25,11 +25,15 @@ Python 3.9.0
 - install all dependencies: python -m pip install -r ./requirements.txt
 
 ## How to Run the tool
-python parser.py --csv-fields date,campaign,fields
-python parser.py --csv-fields date,campaign,fields --csv-path your_csv_file.csv
-python parser.py --csv-fields date,campaign,fields --csv-url https://google_drive_file_url
+`python parser.py --csv-fields date,campaign,fields`
+
+`python parser.py --csv-fields date,campaign,fields --csv-path your_csv_file.csv`
+
+`python parser.py --csv-fields date,campaign,fields --csv-url https://google_drive_file_url`
+
 
 ## How to run tests
-python -m pytest
+`python -m pytest`
+
 
 `Author: Aliaksandr Bahdanovich  (bogdanovich.alex@gmail.com)`
